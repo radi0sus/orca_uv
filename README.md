@@ -1,2 +1,2 @@
 # orca_uv
-Plot absorption spectra from orca.out
+Plots absorption spectra from from ORCA output files
