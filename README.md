@@ -24,8 +24,8 @@ it will save the plot as PNG bitmap:
 - `-pwn` , optional: plot the wave numer (energy, cm**-1) spectrum
 - `-wnm` `N` , optional: line width of the gaussian for the nm scale (default is  `N = 20 nm`)
 - `-wwn` `N` , optional: line width of the gaussian for the cm**-1 scale (default is  `N = 1000 cm**-1`)
-- `-x0`  `N` , optional: start spectrum at N nm or N cm**-1 (x0 > 0)
-- `-x1`  `N` , optional: end spectrum at N nm or N cm**-1 (x1 > 0)
+- `-x0`  `N` , optional: start spectrum at N nm or N cm**-1 (x0 => 0)
+- `-x1`  `N` , optional: end spectrum at N nm or N cm**-1 (x1 => 0)
 
 ## Script options
 There are numerous ways to configure the spectrum in the script:
