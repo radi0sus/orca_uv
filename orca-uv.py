@@ -2,14 +2,60 @@
 '''
 
 # orca-uv
+A Python 3 script for (hassle-free) plotting of absorption spectra from [ORCA](https://orcaforum.kofo.mpg.de) 
+output files with peak dectection and annotation.
+It combines the stick spectrum with the convoluted spectrum (gaussian line shape).
+The script supports energy (wave number, cm**-1) and wavelength (nm) plots.
+The full spectrum or parts of the spectrum can be plotted.
+
+## External modules
+ `re` 
+ `numpy` 
+ `matplotlib`
+ `scipy`  
+
+## Quick start
+ Start the script with:
+`python3 orca-uv.py filename`
+it will save the plot as PNG bitmap:
+`filename-abs.png`
+
+## Command-line options
+- `filename` , required: filename
+- `-s` , optional: shows the `matplotlib` window
+- `-n` , optional: do not save the spectrum
+- `-pwn` , optional: plot the wave numer (energy, cm**-1) spectrum
+- `-wnm` `N` , optional: line width of the gaussian for the nm scale (default is  `N = 20 nm`)
+- `-wwn` `N` , optional: line width of the gaussian for the cm**-1 scale (default is  `N = 1000 cm**-1`)
+- `-x0`  `N` , optional: start spectrum at N nm or N cm**-1 (x0 > 0)
+- `-x1`  `N` , optional: end spectrum at N nm or N cm**-1 (x1 > 0)
+
+## Script options
+There are numerous ways to configure the spectrum in the script:
+Check `# plot config section - configure here` in the script. 
+You can even configure the script to plot of the single gaussian functions.
+
+## Code options
+Colors, line thickness, line styles, level of peak detection and 
+more can be changed in the code directly.
+
+## Special options and limitations
+The PNG file will be replaced everytime you start the script with the same output file. 
+If you want to keep the file, you have to rename it. 
+
+## Examples:
+![Example 1](/examples/example1.png)
+![Example 2](/examples/example2.png)
+![Example 3](/examples/example3.png)
+
 '''
 
 import sys                              #sys files processing
 import os                               #os file processing
 import re                               #regular expressions
+import argparse                         #argument parser
 import numpy as np                      #summation
 import matplotlib.pyplot as plt         #plots
-import argparse                         #argument parser
 from scipy.signal import find_peaks     #peak detection
 
 # global constants
@@ -65,7 +111,7 @@ def gauss(a,m,x,w):
     return a*np.exp(-(np.log(2)*((m-x)/w)**2))
 
 # parse arguments
-parser = argparse.ArgumentParser(prog='orca_uv', description='Easily plot UV/Vis spectra from orca.out')
+parser = argparse.ArgumentParser(prog='orca_uv', description='Easily plot absorption spectra from orca.out')
 
 #filename is required
 parser.add_argument("filename", help="the ORCA output file")
@@ -89,7 +135,7 @@ parser.add_argument('-pwn','--plotwn',
 parser.add_argument('-wnm','--linewidth_nm',
     type=int,
     default=20 ,
-    help='line width for broadening - wave length in nm')
+    help='line width for broadening - wavelength in nm')
 
 #change line with (integer) for line broadening - wn
 parser.add_argument('-wwn','--linewidth_wn',
@@ -100,12 +146,12 @@ parser.add_argument('-wwn','--linewidth_wn',
 #individual x range - start
 parser.add_argument('-x0','--startx',
     type=int,
-    help='start spectrum at x nm / wave numbers')
+    help='start spectrum at x nm or cm**-1')
 
 #individual x range - end
 parser.add_argument('-x1','--endx',
     type=int,
-    help='end spectrum at x nm / wave numbers')
+    help='end spectrum at x nm or cm**-1')
 
 
 #pare arguments
@@ -303,7 +349,7 @@ params.set_size_inches((plSize[0]*N, plSize[1]*N))
 #save the plot
 if save_spectrum:
     filename, file_extension = os.path.splitext(args.filename)
-    plt.savefig(f"{filename}-uvvis.png", dpi=figure_dpi)
+    plt.savefig(f"{filename}-abs.png", dpi=figure_dpi)
     
 #show the plot
 if show_spectrum:
