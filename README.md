@@ -13,7 +13,9 @@ The full spectrum or parts of the spectrum can be plotted.
  
 ## Quick start
  Start the script with:
-`python3 orca-uv.py filename`
+```console
+python3 orca-uv.py filename
+```
 it will save the plot as PNG bitmap:
 `filename-abs.png`
 
