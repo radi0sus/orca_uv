@@ -2,7 +2,7 @@
 A Python 3 script for (hassle-free) plotting of absorption spectra from [ORCA](https://orcaforum.kofo.mpg.de) 
 output files with peak dectection and annotation.
 It combines the stick spectrum with the convoluted spectrum (gaussian line shape).
-The script supports energy (wave number, cm**-1) and wavelength (nm) plots.
+The script supports energy (wave number, cm<sup>-1</sup>) and wavelength (nm) plots.
 The full spectrum or parts of the spectrum can be plotted.
 
 ## External modules
