@@ -23,11 +23,11 @@ it will save the plot as PNG bitmap:
 - `filename` , required: filename
 - `-s` , optional: shows the `matplotlib` window
 - `-n` , optional: do not save the spectrum
-- `-pwn` , optional: plot the wave numer (energy, cm**-1) spectrum
+- `-pwn` , optional: plot the wave numer (energy, cm<sup>-1</sup>) spectrum
 - `-wnm` `N` , optional: line width of the gaussian for the nm scale (default is  `N = 20 nm`)
-- `-wwn` `N` , optional: line width of the gaussian for the cm<sup>-1</sup> scale (default is  `N = 1000 cm<sup>-1</sup>`)
-- `-x0`  `N` , optional: start spectrum at N nm or N cm**-1 (x0 => 0)
-- `-x1`  `N` , optional: end spectrum at N nm or N cm**-1 (x1 => 0)
+- `-wwn` `N` , optional: line width of the gaussian for the cm<sup>-1</sup> scale (default is  `N = 1000 cm^-1`)
+- `-x0`  `N` , optional: start spectrum at N nm or N cm<sup>-1</sup> (x0 => 0)
+- `-x1`  `N` , optional: end spectrum at N nm or N cm<sup>-1</sup> (x1 => 0)
 
 ## Script options
 There are numerous ways to configure the spectrum in the script:
