@@ -44,7 +44,7 @@ If you want to keep the file, you have to rename it.
 The data are taken from the section "ABSORPTION SPECTRUM VIA TRANSITION ELECTRIC DIPOLE MOMENTS".
 
 ## Examples:
-![show](/examples/show-use2.gif)
+![show](/examples/show-use3.gif)
 ![Example 1](/examples/example1.png)
 ![Example 2](/examples/example2.png)
 ![Example 3](/examples/example3.png)
