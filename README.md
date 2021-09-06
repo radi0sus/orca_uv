@@ -38,7 +38,7 @@ You can even configure the script to plot of the single gaussian functions.
 Colors, line thickness, line styles, level of peak detection and 
 more can be changed in the code directly.
 
-## Special options and limitations
+## Remarks
 The PNG file will be replaced everytime you start the script with the same output file. 
 If you want to keep the file, you have to rename it. 
 The data are taken from the section "ABSORPTION SPECTRUM VIA TRANSITION ELECTRIC DIPOLE MOMENTS".
