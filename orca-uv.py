@@ -219,7 +219,7 @@ if show_conv_spectrum:
 
 #plot sticks
 if show_sticks:
-    ax.stem(energylist,intenslist,"dimgrey",markerfmt=" ",basefmt=" ")
+    ax.stem(energylist,intenslist,linefmt="dimgrey",markerfmt=" ",basefmt=" ")
 
 #optional mark peaks - uncomment in case
 #ax.plot(peaks,plt_range_gauss_sum_y_wn[peaks],"x")
