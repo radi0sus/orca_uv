@@ -312,21 +312,24 @@ if save_spectrum:
     filename, file_extension = os.path.splitext(args.filename)
     plt.savefig(f"{filename}-abs.png", dpi=figure_dpi)
     
-#show the plot
-if show_spectrum:
-    plt.show()
-
 #export data
 if export_spectrum:
     #get data from plot (window)
     plotdata = ax.lines[0]
     xdata = plotdata.get_xdata()
     ydata = plotdata.get_ydata()
+    xlimits = plt.gca().get_xlim()
     try:
         with open(args.filename + "-mod.dat","w") as output_file:
             for elements in range(len(xdata)):
-                output_file.write(str(xdata[elements]) + export_delim + str(ydata[elements]) +'\n')
+                if xdata[elements] >= xlimits[0]:
+                    output_file.write(str(xdata[elements]) + export_delim + str(ydata[elements]) +'\n')
     #file not found -> exit here
     except IOError:
         print("Write error. Exit.")
         sys.exit(1)
+
+#show the plot
+if show_spectrum:
+    plt.show()
+    
