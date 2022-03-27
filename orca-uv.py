@@ -322,7 +322,7 @@ if export_spectrum:
     try:
         with open(args.filename + "-mod.dat","w") as output_file:
             for elements in range(len(xdata)):
-                if xdata[elements] >= xlimits[0]:
+                if xdata[elements] >= xlimits[0] and xdata[elements] <= xlimits[1]:
                     output_file.write(str(xdata[elements]) + export_delim + str(ydata[elements]) +'\n')
     #file not found -> exit here
     except IOError:
