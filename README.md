@@ -34,6 +34,7 @@ it will save the plot as PNG bitmap:
 There are numerous ways to configure the spectrum in the script:
 Check `# plot config section - configure here` in the script. 
 You can even configure the script to plot of the single gaussian functions.
+
 The delimiter for the line spectrum export can be changed by changing the value of `export_delim =`.
 
 ## Code options
