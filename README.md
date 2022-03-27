@@ -23,6 +23,7 @@ it will save the plot as PNG bitmap:
 - `filename` , required: filename
 - `-s` , optional: shows the `matplotlib` window
 - `-n` , optional: do not save the spectrum
+- `-e` , optional: export the line spectrum in a csv-like fashion; filename of the export is input filename + "-mod.dat"
 - `-pwn` , optional: plot the wave numer (energy, cm<sup>-1</sup>) spectrum
 - `-wnm` `N` , optional: line width of the gaussian for the nm scale (default is `N = 20`)
 - `-wwn` `N` , optional: line width of the gaussian for the cm<sup>-1</sup> scale (default is `N = 1000`)
@@ -33,6 +34,7 @@ it will save the plot as PNG bitmap:
 There are numerous ways to configure the spectrum in the script:
 Check `# plot config section - configure here` in the script. 
 You can even configure the script to plot of the single gaussian functions.
+The delimiter for the line spectrum export can be changed by changing the value of `export_delim =`.
 
 ## Code options
 Colors, line thickness, line styles, level of peak detection and 
