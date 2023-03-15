@@ -1,4 +1,7 @@
 # orca-uv
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/radi0sus/orca_uv/blob/master/examples/uv_vi_spectra_graphs.ipynb)
+[![License](https://img.shields.io/badge/license-BSD-green)](LICENSE.txt)
+
 A Python 3 script for (hassle-free) plotting of absorption spectra from [ORCA](https://orcaforum.kofo.mpg.de) 
 output files with peak dectection and annotation.
 It combines the stick spectrum with the convoluted spectrum (gaussian line shape).
@@ -51,3 +54,7 @@ The data are taken from the section "ABSORPTION SPECTRUM VIA TRANSITION ELECTRIC
 ![Example 1](/examples/example1.png)
 ![Example 2](/examples/example2.png)
 ![Example 3](/examples/example3.png)
+
+## License
+
+This project is licensed under the BSD License - see the [LICENSE](LICENSE) file for details
