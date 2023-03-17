@@ -24,7 +24,7 @@ it will save the plot as PNG bitmap:
 - `-s` , optional: shows the `matplotlib` window
 - `-n` , optional: do not save the spectrum
 - `-e` , optional: export the line spectrum in a csv-like fashion; filename of the export is input filename + "-mod.dat"
-- `-pwn` , optional: plot the wave numer (energy, cm<sup>-1</sup>) spectrum
+- `-pwn` , optional: plot the wave number (energy, cm<sup>-1</sup>) spectrum
 - `-wnm` `N` , optional: line width of the gaussian for the nm scale (default is `N = 20`)
 - `-wwn` `N` , optional: line width of the gaussian for the cm<sup>-1</sup> scale (default is `N = 1000`)
 - `-x0`  `N` , optional: start spectrum at N nm or N cm<sup>-1</sup> (`x0 => 0`)
