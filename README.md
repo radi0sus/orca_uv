@@ -6,10 +6,9 @@ The script supports energy (wave number, cm<sup>-1</sup>) and wavelength (λ, nm
 The full spectrum or parts of the spectrum can be plotted.
 
 ## External modules
- `re` 
  `numpy` 
- `matplotlib`
  `scipy`  
+ `matplotlib`
  
 ## Quick start
  Start the script with:
