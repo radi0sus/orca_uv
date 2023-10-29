@@ -7,7 +7,7 @@ The full spectrum or parts of the spectrum can be plotted.
 
 ## External modules
  `numpy` 
- `scipy`  
+ `scipy`
  `matplotlib`
  
 ## Quick start
