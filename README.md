@@ -5,6 +5,12 @@ It combines the stick spectrum with the convoluted spectrum (gaussian line shape
 The script supports energy (wave number, cm<sup>-1</sup>) and wavelength (λ, nm) plots.
 The full spectrum or parts of the spectrum can be plotted.
 
+Please also have a look at the interactive [Jupyter Notebook edition](https://github.com/radi0sus/orca_uv/blob/main/orca-uv.ipynb). 
+It offers a sligthly reduced functionality without the need to maintain a local Python installation.
+Please upload an `orca.out` file to the same directory and adjust the code to `abs_data = imp_data('my_orca_calc_with_abs_data.out')`.    
+Note: The interactive Matplotlib window does not work very well with *colab*. Replace `%matplotlib widget` with `%matplotlib inline` 
+for a better performance. However, this change removes the ability to select a specific region and save the spectrum bitmap.
+
 ## External modules
  `numpy` 
  `scipy`
