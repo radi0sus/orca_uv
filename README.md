@@ -11,6 +11,8 @@ Please upload an `orca.out` file to the same directory and adjust the code to `a
 Note: The interactive Matplotlib window does not work very well with *colab*. Replace `%matplotlib widget` with `%matplotlib inline` 
 for a better performance. However, this change removes the ability to select a specific region and save the spectrum bitmap.
 
+<img src='examples\jn1.png' alt='Jupyter Notebook' width=500 align='center'>   
+
 ## External modules
  `numpy` 
  `scipy`
