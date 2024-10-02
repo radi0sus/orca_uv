@@ -36,12 +36,9 @@ spectrum_title_weight = "bold"              #weight of the title font: 'normal' 
 y_label = "intensity"                       #label of y-axis 
 x_label_wn = r'energy /cm$^{-1}$'           #label of the x-axis - wave number
 x_label_nm = r'$\lambda$ /nm'               #label of the x-axis - nm
-normalize_export = False                    #normalize y values for export, max y value becomes unity 
-normalize_factor = 1                        #factor for normalization, e.g. 3 ranges from 0 to max y = 3 
 figure_dpi = 300                            #DPI of the picture
 
 #global lists
-statelist=list()            #mode
 energylist=list()           #energy cm-1
 intenslist=list()           #fosc
 gauss_sum=list()            #list for the sum of single gaussian spectra = the convoluted spectrum for cm-1
@@ -163,6 +160,13 @@ try:
     with open(args.filename, "r") as input_file:
         for line in input_file:
             #start exctract text 
+            if "Program Version 6" in line:
+                #thanks to the orca prgrmrs all is different 
+                energy_column=4
+                intens_column=6
+            elif "Program Version" in line:
+                energy_column=1
+                intens_column=3
             if specstring_start in line:
             #found UV data in orca.out
                 found_uv_section=True
@@ -171,12 +175,11 @@ try:
                     if specstring_end in line:
                         break
                     #only recognize lines that start with number
-                    #split line into 3 lists mode, energy, intensities
+                    #split line into 2 lists energy, intensities
                     #line should start with a number
                     if re.search("\d\s{1,}\d",line): 
-                        statelist.append(int(line.strip().split()[0])) 
-                        energylist.append(float(line.strip().split()[1]))
-                        intenslist.append(float(line.strip().split()[3]))
+                        energylist.append(float(line.strip().split()[energy_column]))
+                        intenslist.append(float(line.strip().split()[intens_column]))
                         
 #file not found -> exit here
 except IOError:
@@ -321,20 +324,11 @@ if export_spectrum:
     xdata = plotdata.get_xdata()
     ydata = plotdata.get_ydata()
     xlimits = plt.gca().get_xlim()
-    
-    #if normalize is True
-    if normalize_export:
-        ymax = max(ydata)
-    #do not normalize
-    else:
-        ymax = 1
-        normalize_factor = 1
-    
     try:
         with open(args.filename + "-mod.dat","w") as output_file:
             for elements in range(len(xdata)):
                 if xdata[elements] >= xlimits[0] and xdata[elements] <= xlimits[1]:
-                    output_file.write(str(xdata[elements]) + export_delim + str(ydata[elements]/ymax*normalize_factor) +'\n')
+                    output_file.write(str(xdata[elements]) + export_delim + str(ydata[elements]) +'\n')
     #file not found -> exit here
     except IOError:
         print("Write error. Exit.")
@@ -343,5 +337,3 @@ if export_spectrum:
 #show the plot
 if show_spectrum:
     plt.show()
-    
-    
