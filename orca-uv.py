@@ -36,6 +36,8 @@ spectrum_title_weight = "bold"              #weight of the title font: 'normal' 
 y_label = "intensity"                       #label of y-axis 
 x_label_wn = r'energy /cm$^{-1}$'           #label of the x-axis - wave number
 x_label_nm = r'$\lambda$ /nm'               #label of the x-axis - nm
+normalize_export = False                    #normalize y values for export, max y value becomes unity 
+normalize_factor = 1                        #factor for normalization, e.g. 3 ranges from 0 to max y = 3 
 figure_dpi = 300                            #DPI of the picture
 
 #global lists
@@ -324,11 +326,20 @@ if export_spectrum:
     xdata = plotdata.get_xdata()
     ydata = plotdata.get_ydata()
     xlimits = plt.gca().get_xlim()
+    
+    #if normalize is True
+    if normalize_export:
+        ymax = max(ydata)
+    #do not normalize
+    else:
+        ymax = 1
+        normalize_factor = 1
+    
     try:
         with open(args.filename + "-mod.dat","w") as output_file:
             for elements in range(len(xdata)):
                 if xdata[elements] >= xlimits[0] and xdata[elements] <= xlimits[1]:
-                    output_file.write(str(xdata[elements]) + export_delim + str(ydata[elements]) +'\n')
+                    output_file.write(str(xdata[elements]) + export_delim + str(ydata[elements]/ymax*normalize_factor) +'\n')
     #file not found -> exit here
     except IOError:
         print("Write error. Exit.")
