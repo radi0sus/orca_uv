@@ -1,3 +1,8 @@
+> [!TIP]
+> **Trusty `orca-uv.py` is now available as a web app (thanks to AI)! Enjoy a brand-new interactive interface.**  
+> 👉 Try it here: https://radi0sus.github.io/advanced_orca_uv/   
+> 👉 Dive into the [code](https://github.com/radi0sus/advanced_orca_uv).
+
 # orca-uv
 A Python 3 script for (hassle-free) plotting of absorption spectra from [ORCA](https://orcaforum.kofo.mpg.de) 
 output files with peak dectection and annotation.
